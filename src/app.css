@@ -8,5 +8,5 @@ body {
 }
 
 .card {
-    @apply p-8 bg-gray-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-3xl gap-4
+    @apply p-8 bg-gray-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-3xl gap-4 shadow-lg dark:shadow-teal-950 dark:shadow;
 }

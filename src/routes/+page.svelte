@@ -4,10 +4,14 @@
 	import Overview from './block/Overview/Overview.svelte';
 	import Extra from './block/Extra/Extra.svelte';
 	import FutureForecasts from './block/FutureForecasts/FutureForecasts.svelte';
+	import { DataParser } from '$lib/utils/DataParser/DataParser';
 
-	const rainChance = 20;
-	const temperature = 15;
-	const city = 'Guatavita';
+	let { data } = $props();
+	console.log(data.result);
+
+	const dataParser = new DataParser();
+
+	let overview = $derived(dataParser.getOverview(data.result));
 
 	const forecast: TimeForecast[] = [
 		{ time: '3:00 am', temperature: 13 },
@@ -16,7 +20,7 @@
 		{ time: '6:00 am', temperature: 15 }
 	];
 
-	const extra: ExtraInfo = {
+	let extra: ExtraInfo = {
 		realFeel: 16,
 		windSpeed: 0.5,
 		rainChance: 29.3,
@@ -28,9 +32,9 @@
 		{ dayName: 'Tuesday', weather: 'Rainy', day: '25/10' },
 		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' },
 		{ dayName: 'Monday', weather: 'Sunny', day: '24/10' },
-		{ dayName: 'Tuesday', weather: 'Rainy', day: '25/10' },
-		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' },
-		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' }
+		{ dayName: 'Tuesday', weather: 'Rainy', day: '27/10' },
+		{ dayName: 'Wednesday', weather: 'Cloudy', day: '28/10' },
+		{ dayName: 'Wednesday', weather: 'Cloudy', day: '29/10' }
 	];
 </script>
 
@@ -38,7 +42,7 @@
 	<div class="lg:w-3/5 m-4 p-3 space-y-5">
 		<div class="relative">
 			<input
-				class="w-full focus:outline-none rounded-lg py-3 px-2 bg-gray-200 dark:bg-slate-800 dark:text-teal-50 text-teal-950"
+				class="shadow-inner w-full focus:outline-none rounded-lg py-3 px-2 bg-gray-200 dark:bg-slate-800 dark:text-teal-50 text-teal-950"
 				type="text"
 				placeholder="Seach location..."
 			/>
@@ -59,9 +63,17 @@
 				</svg>
 			</span>
 		</div>
-		<Overview {rainChance} {temperature} {city} />
-		<Forecast {forecast} />
-		<Extra {extra} />
+		{#if data.result}
+			<Overview
+				humidity={overview.humidity}
+				temperature={overview.temperature}
+				city={overview.city}
+			/>
+			<Forecast {forecast} />
+			<Extra {extra} />
+		{:else}
+			<p>No information found</p>
+		{/if}
 	</div>
 	<div class="lg:w-2/5 m-4">
 		<FutureForecasts days={futureForecast} />
