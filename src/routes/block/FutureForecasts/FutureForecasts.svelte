@@ -15,7 +15,7 @@
 			<div class="font-normal flex justify-between items-center w-full">
 				<p>{el.dayName}</p>
 				<div class="flex gap-2 items-center">
-					<!-- <p class="text-xl">☀️</p> -->
+					<!-- <img class="max-w-9 h-auto" src={el.icon + '.svg'} alt="Future forecast" /> -->
 					<p class="font-bold dark:text-teal-50 text-teal-950">{el.weather}</p>
 				</div>
 				<p>{el.day}</p>

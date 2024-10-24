@@ -1,6 +1,13 @@
 export interface TimeForecast {
 	time: string;
 	temperature: number;
+	icon: WeatherIcon;
+}
+
+export enum WeatherIcon {
+	Rainy = 'Rainy',
+	Sunny = 'Sunny',
+	Cloudy = 'PartlyCloudy'
 }
 
 export interface ExtraInfo {
@@ -14,6 +21,7 @@ export interface FutureForecast {
 	dayName: string;
 	weather: string;
 	day: string;
+	icon: WeatherIcon;
 }
 
 export interface WeatherAPIResponse {
@@ -151,4 +159,16 @@ export interface Hour {
 	gust_mph: number;
 	gust_kph: number;
 	uv: number;
+}
+
+export interface Suggestion {
+	id: number;
+	name: string;
+	region: Region;
+}
+
+export interface Region {
+	id: number;
+	name: string;
+	region: string;
 }

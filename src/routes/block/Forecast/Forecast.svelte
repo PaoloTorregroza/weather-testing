@@ -6,6 +6,7 @@
 	}
 
 	let { forecast }: ForecastProps = $props();
+	console.log(forecast);
 </script>
 
 <div class="font-bold flex flex-col items-start card">
@@ -14,7 +15,7 @@
 		{#each forecast as el, i (el.time + el.temperature)}
 			<div class="">
 				<p>{el.time}</p>
-				<img class="mt-2 min-w-16 h-auto" src="https://placehold.co/75" alt="Forecast icon" />
+				<img class="mt-2 min-w-16 h-auto" src={el.icon + '.svg'} alt="Forecast icon" />
 				<p class="dark:text-teal-50 text-teal-950 text-2xl">{el.temperature.toFixed(1)}°</p>
 			</div>
 			{#if i < forecast.length - 1}

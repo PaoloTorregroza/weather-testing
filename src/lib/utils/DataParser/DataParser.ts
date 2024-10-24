@@ -1,11 +1,18 @@
-import type { ExtraInfo, FutureForecast, TimeForecast, WeatherAPIResponse } from '$lib/types';
+import {
+	WeatherIcon,
+	type ExtraInfo,
+	type FutureForecast,
+	type TimeForecast,
+	type WeatherAPIResponse
+} from '$lib/types';
 
 export class DataParser {
 	getOverview(apiResponse: WeatherAPIResponse | undefined) {
 		return {
 			humidity: apiResponse?.current.humidity ?? 0,
 			temperature: apiResponse?.current.temp_c ?? 0,
-			city: apiResponse?.location.name ?? ''
+			city: apiResponse?.location.name ?? '',
+			icon: this.getWeatherIcon(apiResponse)
 		};
 	}
 
@@ -26,7 +33,8 @@ export class DataParser {
 			result.push({
 				day: this.formatDateToDayMonth(el.date),
 				dayName: this.getDayOfWeek(el.date),
-				weather: el.day.condition.text
+				weather: el.day.condition.text,
+				icon: this.getWeatherIcon(apiResponse)
 			});
 		}
 
@@ -35,11 +43,15 @@ export class DataParser {
 
 	// The api we are using does not have hourly forecast, just fake data
 	getTimeForecast(apiResponse: WeatherAPIResponse | undefined): TimeForecast[] {
-		const result = [];
+		const result: TimeForecast[] = [];
 		const current_temp = apiResponse?.current.temp_c ?? 0;
 
 		for (let i = 6; i < 11; ++i) {
-			result.push({ time: i + ':00am', temperature: current_temp + Math.random() * 4 - 2 });
+			result.push({
+				time: i + ':00am',
+				temperature: current_temp + Math.random() * 4 - 2,
+				icon: this.getWeatherIcon(undefined, true)
+			});
 		}
 
 		return result;
@@ -73,5 +85,23 @@ export class DataParser {
 
 		// Devuelve el formato deseado DD/MM
 		return `${day}/${month}`;
+	}
+
+	private getWeatherIcon(apiResponse: WeatherAPIResponse | undefined, random = false): WeatherIcon {
+		if (random) {
+			const values = Object.values(WeatherIcon);
+			const icon = values[Math.floor(Math.random() * values.length)];
+			return icon;
+		} else if (apiResponse) {
+			if (apiResponse.forecast.forecastday[0].day.daily_chance_of_rain > 50) {
+				return WeatherIcon.Rainy;
+			} else if (apiResponse.current.cloud > 50) {
+				return WeatherIcon.Cloudy;
+			} else {
+				return WeatherIcon.Sunny;
+			}
+		}
+
+		return WeatherIcon.Sunny;
 	}
 }
