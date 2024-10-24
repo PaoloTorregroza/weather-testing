@@ -12,16 +12,16 @@
 	<h6 class="uppercase text-sm">7-day forecast</h6>
 	<div class="flex flex-col gap-7 justify-start items-stretch w-full">
 		{#each days as el, i}
-			<div class="flex justify-between w-full">
+			<div class="font-normal flex justify-between items-center w-full">
 				<p>{el.dayName}</p>
-				<div class="flex gap-2">
-					<p>☀️</p>
-					<p>{el.weather}</p>
+				<div class="flex gap-2 items-center">
+					<!-- <p class="text-xl">☀️</p> -->
+					<p class="font-bold dark:text-teal-50 text-teal-950">{el.weather}</p>
 				</div>
 				<p>{el.day}</p>
 			</div>
 			{#if i < days.length - 1}
-				<div class="border-b border-slate-500 w-full"></div>
+				<div class="border-b border-slate-300 dark:border-slate-700 w-full"></div>
 			{/if}
 		{/each}
 	</div>

@@ -15,7 +15,7 @@
 			<div class="">
 				<p>{el.time}</p>
 				<img class="mt-2 min-w-16 h-auto" src="https://placehold.co/75" alt="Forecast icon" />
-				<p class="dark:text-teal-50 text-teal-950 text-2xl">{el.temperature}°</p>
+				<p class="dark:text-teal-50 text-teal-950 text-2xl">{el.temperature.toFixed(1)}°</p>
 			</div>
 			{#if i < forecast.length - 1}
 				<div class="border-r border-slate-500 h-28"></div>

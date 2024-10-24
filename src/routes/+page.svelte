@@ -12,30 +12,9 @@
 	const dataParser = new DataParser();
 
 	let overview = $derived(dataParser.getOverview(data.result));
-
-	const forecast: TimeForecast[] = [
-		{ time: '3:00 am', temperature: 13 },
-		{ time: '4:00 am', temperature: 11 },
-		{ time: '5:00 am', temperature: 13 },
-		{ time: '6:00 am', temperature: 15 }
-	];
-
-	let extra: ExtraInfo = {
-		realFeel: 16,
-		windSpeed: 0.5,
-		rainChance: 29.3,
-		UVIndex: 2
-	};
-
-	const futureForecast: FutureForecast[] = [
-		{ dayName: 'Monday', weather: 'Sunny', day: '24/10' },
-		{ dayName: 'Tuesday', weather: 'Rainy', day: '25/10' },
-		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' },
-		{ dayName: 'Monday', weather: 'Sunny', day: '24/10' },
-		{ dayName: 'Tuesday', weather: 'Rainy', day: '27/10' },
-		{ dayName: 'Wednesday', weather: 'Cloudy', day: '28/10' },
-		{ dayName: 'Wednesday', weather: 'Cloudy', day: '29/10' }
-	];
+	let forecast = $derived(dataParser.getTimeForecast(data.result));
+	let extra = $derived(dataParser.getExtra(data.result));
+	let futureForecast = $derived(dataParser.getFutureForecast(data.result));
 </script>
 
 <div class="flex flex-col lg:flex-row">
@@ -75,7 +54,7 @@
 			<p>No information found</p>
 		{/if}
 	</div>
-	<div class="lg:w-2/5 m-4">
+	<div class="lg:w-2/5 mx-4 p-3">
 		<FutureForecasts days={futureForecast} />
 	</div>
 </div>

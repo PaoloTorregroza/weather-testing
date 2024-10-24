@@ -2,13 +2,10 @@ import type { WeatherAPIResponse } from '$lib/types';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch }) => {
-	const url = 'https://weatherapi-com.p.rapidapi.com/forecast.json?q=Guatavita&days=7';
+	const key = process.env.API_KEY;
+	const url = 'http://api.weatherapi.com/v1/forecast.json?q=Guatavita&days=7&key=' + key;
 	const options = {
-		method: 'GET',
-		headers: {
-			'x-rapidapi-key': 'f9a14d1568msh476cf13d425aea6p10617ajsnb85360560087',
-			'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
-		}
+		method: 'GET'
 	};
 	try {
 		const response = await fetch(url, options);
