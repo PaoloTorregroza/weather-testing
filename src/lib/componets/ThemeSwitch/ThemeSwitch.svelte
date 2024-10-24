@@ -27,7 +27,7 @@
 	}
 </script>
 
-<div>
+<div class="fixed bottom-0 right-0">
 	<input
 		data-testid="toggle-button"
 		type="checkbox"
@@ -35,7 +35,7 @@
 		checked={darkMode}
 		id="theme-toggle"
 	/>
-	<label for="theme-toggle" />
+	<label for="theme-toggle"></label>
 </div>
 
 <style lang="postcss">
@@ -44,7 +44,7 @@
 	}
 
 	#theme-toggle + label {
-		@apply inline-block cursor-pointer h-12 w-12 absolute top-6 right-24 rounded-full duration-300 content-[''];
+		@apply inline-block cursor-pointer h-12 w-12 absolute bottom-4 right-4 rounded-full duration-300 content-[''];
 	}
 
 	#theme-toggle:not(:checked) + label {

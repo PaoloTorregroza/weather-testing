@@ -4,5 +4,9 @@
 
 body {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    @apply bg-white dark:bg-black text-black dark:text-white text-center;
+    @apply bg-white dark:bg-slate-950 text-black dark:text-white text-center;
+}
+
+.card {
+    @apply p-8 bg-gray-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-3xl gap-4
 }
