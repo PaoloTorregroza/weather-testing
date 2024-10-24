@@ -18,7 +18,7 @@
 				<p class="dark:text-teal-50 text-teal-950 text-2xl">{el.temperature}°</p>
 			</div>
 			{#if i < forecast.length - 1}
-				<div class="border-r border-slate-500 h-36"></div>
+				<div class="border-r border-slate-500 h-28"></div>
 			{/if}
 		{/each}
 	</div>

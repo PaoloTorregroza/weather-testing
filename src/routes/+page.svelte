@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Forecast from './block/Forecast/Forecast.svelte';
-	import type { ExtraInfo, TimeForecast } from '../lib/types';
+	import type { ExtraInfo, FutureForecast, TimeForecast } from '../lib/types';
 	import Overview from './block/Overview/Overview.svelte';
 	import Extra from './block/Extra/Extra.svelte';
+	import FutureForecasts from './block/FutureForecasts/FutureForecasts.svelte';
 
 	const rainChance = 20;
 	const temperature = 15;
@@ -21,6 +22,16 @@
 		rainChance: 29.3,
 		UVIndex: 2
 	};
+
+	const futureForecast: FutureForecast[] = [
+		{ dayName: 'Monday', weather: 'Sunny', day: '24/10' },
+		{ dayName: 'Tuesday', weather: 'Rainy', day: '25/10' },
+		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' },
+		{ dayName: 'Monday', weather: 'Sunny', day: '24/10' },
+		{ dayName: 'Tuesday', weather: 'Rainy', day: '25/10' },
+		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' },
+		{ dayName: 'Wednesday', weather: 'Cloudy', day: '26/10' }
+	];
 </script>
 
 <div class="flex flex-col lg:flex-row">
@@ -52,5 +63,7 @@
 		<Forecast {forecast} />
 		<Extra {extra} />
 	</div>
-	<div class="lg:w-2/5 bg-gray-200 dark:bg-slate-800 m-4 p-5"></div>
+	<div class="lg:w-2/5 m-4">
+		<FutureForecasts days={futureForecast} />
+	</div>
 </div>

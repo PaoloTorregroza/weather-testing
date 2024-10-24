@@ -9,3 +9,9 @@ export interface ExtraInfo {
 	rainChance: number;
 	UVIndex: number;
 }
+
+export interface FutureForecast {
+	dayName: string;
+	weather: string;
+	day: string;
+}

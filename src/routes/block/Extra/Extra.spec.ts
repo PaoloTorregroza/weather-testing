@@ -11,7 +11,7 @@ describe('Extra info component', () => {
 			UVIndex: 4
 		};
 
-		render(Extra, { props: extra });
+		render(Extra, { props: { extra } });
 
 		expect(await screen.findByText('33°')).toBeTruthy();
 		expect(await screen.findByText('0.2 km/h')).toBeTruthy();
