@@ -1,38 +1,28 @@
-# create-svelte
+# Svelte 5 testing example
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+I created this project with two objectives, learn **svelte 5** and improve my **testing** skills on javascript environments using Vitest.
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+The application connects to the OpenWeather API and fetches weather data on the server side, managing all API logic securely on the backend. The client side is focused solely on displaying this information, providing users with current weather conditions, forecasts, and other relevant data in an intuitive and responsive interface.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## 🛠️ Main technologies and tools used
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **SvelteKit**: A framework for building highly optimized web applications, focused on performance and developer experience.
+- **Tailwind**: A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+- **Svelte 5**: The latest version of Svelte, featuring updates to reactivity and event handling.
+- **Vitest**: A fast, Vite-powered testing framework designed for modern frontend projects.
 
-## Developing
+## Screenshots and Demo
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Here are a few screenshots of the application in action:
 
-```bash
-npm run dev
+![Dark mode](./static/readme_images/dark_mode.png)
+![Light mode](./static/readme_images/light_mode.png)
+![Mobile Dark Mode](./static/readme_images/mobile_dark.png)
+![Mobile Light Mode](./static/readme_images/mobile_light.png)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Demo Video
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Check out this short demo of the app:
+![Video](./static/readme_images/demo.mp4)
