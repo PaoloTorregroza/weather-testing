@@ -15,14 +15,9 @@ The application connects to the OpenWeather API and fetches weather data on the 
 
 ## Screenshots and Demo
 
-Here are a few screenshots of the application in action:
+![Video](./static/readme_images/demo.gif)
 
 <img src="./static/readme_images/dark_mode.png" alt="Dark mode" style="max-width: 1300px;"/>
 <img src="./static/readme_images/light_mode.png" alt="Light mode" style="max-width: 1300px;"/>
 <img src="./static/readme_images/mobile_dark.png" alt="Mobile Dark Mode" style="max-width: 500px;"/>
 <img src="./static/readme_images/mobile_light.png" alt="Mobile Light Mode" style="max-width: 500px;"/>
-
-### Demo Video
-
-Check out this short demo of the app:
-![Video](./static/readme_images/demo.gif)
