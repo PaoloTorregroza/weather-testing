@@ -27,7 +27,7 @@
 	}
 </script>
 
-<div class="fixed bottom-0 right-0">
+<div data-testid="theme-switch" class="fixed bottom-0 right-0">
 	<input
 		data-testid="toggle-button"
 		type="checkbox"

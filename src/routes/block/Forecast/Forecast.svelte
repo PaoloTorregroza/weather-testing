@@ -6,7 +6,6 @@
 	}
 
 	let { forecast }: ForecastProps = $props();
-	console.log(forecast);
 </script>
 
 <div class="font-bold flex flex-col items-start card">

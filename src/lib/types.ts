@@ -164,11 +164,5 @@ export interface Hour {
 export interface Suggestion {
 	id: number;
 	name: string;
-	region: Region;
-}
-
-export interface Region {
-	id: number;
-	name: string;
-	region: string;
+	region: string | undefined;
 }

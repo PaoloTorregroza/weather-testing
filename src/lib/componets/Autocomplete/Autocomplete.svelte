@@ -17,6 +17,7 @@
 
 {#if suggestions.length > 0}
 	<ul
+		data-testid="suggestions-list"
 		class="dark:bg-slate-800 dark:border-slate-900 absolute bg-white border border-gray-300 rounded-xl mt-1 shadow-lg w-full max-h-60 overflow-y-auto"
 	>
 		{#if suggestions.length > 0}
